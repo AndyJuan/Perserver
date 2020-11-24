@@ -15,11 +15,13 @@ public class Code543_diameterOfBinaryTree {
         if (root == null){
             return 0;
         }
-        int left = getDepth(root.left); // 左儿子为根的子树的深度
-        int right = getDepth(root.right);  // 右儿子为根的子树的深度
-
-        ans = Math.max(ans,left+right); // 计算当前节点的直径 left+right+1, 并更新ans
-
-        return Math.max(left,right)+1; // 返回该节点为根的子树的深度
+        // 左儿子为根的子树的深度
+        int left = getDepth(root.left);
+        // 右儿子为根的子树的深度
+        int right = getDepth(root.right);
+        // 计算当前节点的直径 left+right+1, 并更新ans
+        ans = Math.max(ans,left+right);
+        // 返回该节点为根的子树的深度
+        return Math.max(left,right)+1;
     }
 }
