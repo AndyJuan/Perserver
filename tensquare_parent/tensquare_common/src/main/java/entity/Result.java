@@ -2,6 +2,8 @@ package entity;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class Result {
     /**
@@ -20,4 +22,25 @@ public class Result {
      * 返回数据
      */
     private Object data;
+
+    /**
+     * 构造器
+     */
+
+    public Result(){
+
+    }
+
+    public Result (Boolean flag,Integer code,String message){
+        this.flag =flag;
+        this.code=code;
+        this.message=message;
+    }
+
+    public Result(Boolean flag,Integer code,String message,Object data){
+        this.flag =flag;
+        this.code=code;
+        this.message=message;
+        this.data=data;
+    }
 }

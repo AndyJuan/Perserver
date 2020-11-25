@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.IUserDao">
+    <!--配置查询所有-->
+    <select id="findAll" resultType="entities.User">
+        select * from user
+    </select>
+
+    <select id="findById" resultType="entities.User" parameterType="int">
+        select * from user where id = #{usrId}
+    </select>
+
+    <insert id="saveUser" parameterType="entities.User">
+        insert into user(username,birthday,sex,address)
+        values(#{username},#{birthday},#{sex},#{address})
+    </insert>
+
+    <delete id="deleteUser" parameterType="java.lang.Integer">
+        delete from user where id = #{userId}
+    </delete>
+
+    <select id="findByName" parameterType="string" resultType="entities.User">
+        select * from user where username like '%${value}%'
+    </select>
+
+    <select id="findTotal" resultType="int">
+        select count(*) from user
+    </select>
+
+
+</mapper>
